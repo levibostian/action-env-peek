@@ -1,0 +1,22 @@
+name: 'Environment Peek'
+description: 'A simple action to debug and display environment information in GitHub Actions CI logs'
+author: 'GitHub Actions'
+
+branding:
+  icon: 'eye'
+  color: 'blue'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: debug environment variables
+      run: cat $GITHUB_EVENT_PATH | jq .
+      shell: bash
+
+    - name: debug github context
+      run: echo '${{ toJson(github) }}' | jq .
+      shell: bash
+
+    - name: debug all environment variables
+      run: env | sort
+      shell: bash
