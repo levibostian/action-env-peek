@@ -16,24 +16,7 @@ Add this step to your workflow:
 
 ```yaml
 - name: Debug Environment
-  uses: your-username/actions-env-peek@v1
-```
-
-## Example Workflow
-
-```yaml
-name: Debug Environment
-on: [push, pull_request]
-
-jobs:
-  debug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Peek at environment
-        uses: your-username/actions-env-peek@v1
+  uses: levibostian/action-env-peek@main
 ```
 
 ## Output
@@ -48,8 +31,3 @@ This is particularly useful for:
 - Debugging workflow issues
 - Understanding what data is available in your GitHub Actions environment
 - Troubleshooting context-dependent logic
-
-## Requirements
-
-- Requires `jq` to be available (pre-installed on GitHub-hosted runners)
-- Works on Linux, macOS, and Windows runners
